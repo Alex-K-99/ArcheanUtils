@@ -103,10 +103,10 @@ function @Text_GetNthIndexOf($text: text, $search: text, $n: number): number
 function @Text_GetNthSplitChunk($text: text, $splitter: text, $n: number): text
 	if @Text_Count($text, $splitter) < $n
 		return "INVALID"
-	var $startIndex = @Text_Get_Nth_Index_Of($text, $splitter, $n)
+	var $startIndex = @Text_GetNthIndexOf($text, $splitter, $n)
 	if $n > 0
 		$startIndex++
-	var $endIndex = @Text_Get_Nth_Index_Of($text, $splitter, $n+1) - 1
+	var $endIndex = @Text_GetNthIndexOf($text, $splitter, $n+1) - 1
 
 	if $startIndex < 0
 		return "INVALID"
